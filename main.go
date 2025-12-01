@@ -275,7 +275,7 @@ func (s *Service) handleStatus(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// Extract group from path (e.g., /status/dedukh1 -> dedukh1)
+	// Extract group from path (e.g., /status/test -> test)
 	path := r.URL.Path
 	if len(path) <= len("/status/") {
 		http.Error(w, "Group is required", http.StatusBadRequest)
@@ -320,6 +320,7 @@ func (s *Service) handleStatus(w http.ResponseWriter, r *http.Request) {
 
 		// Format timestamp in ISO format
 		lastOperativeISO := device.LastOperativeDt.Format("2006-01-02T15:04:05Z")
+		log.Printf("Last operative: %s", lastOperativeISO)
 
 		// Check if the timestamp is within the timeout
 		age := now.Sub(device.LastOperativeDt)

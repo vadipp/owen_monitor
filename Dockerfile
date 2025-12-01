@@ -24,10 +24,7 @@ WORKDIR /root/
 # Copy the binary from builder
 COPY --from=builder /app/monitor_adapter .
 
-# Copy config file
-COPY config.yaml .
-
-# Expose port (will be overridden by config.yaml)
+# Expose port
 EXPOSE 8080
 
 CMD ["./monitor_adapter"]
