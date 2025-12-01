@@ -320,7 +320,6 @@ func (s *Service) handleStatus(w http.ResponseWriter, r *http.Request) {
 
 		// Format timestamp in ISO format
 		lastOperativeISO := device.LastOperativeDt.Format("2006-01-02T15:04:05Z")
-		log.Printf("Last operative: %s", lastOperativeISO)
 
 		// Check if the timestamp is within the timeout
 		age := now.Sub(device.LastOperativeDt)
