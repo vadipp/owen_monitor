@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  monitor_adapter:
+    build: .
+    container_name: monitor_adapter
+    ports:
+      - "${PORT:-8080}:${PORT:-8080}"
+    volumes:
+      - ./config.yaml:/root/config.yaml:ro
+    restart: unless-stopped
+    environment:
+      - TZ=UTC
+

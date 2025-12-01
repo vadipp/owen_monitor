@@ -1,0 +1,9 @@
+port: 8080
+login: "LOGIN"
+password: "PASSWORD"
+
+mapping:
+  - group: test
+    timeout: 120
+    names:
+      - "ИмяРек"
